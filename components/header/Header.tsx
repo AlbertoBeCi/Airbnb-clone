@@ -16,6 +16,7 @@ export default function Header({
   variant,
   activeCategoryTab,
   userSession,
+  onSearchSubmit,
 }: HeaderProps) {
   const isFull = variant === "full";
 
@@ -26,7 +27,7 @@ export default function Header({
         {isFull && <NavTabs activeCategoryTab={activeCategoryTab} />}
         {!isFull && (
           <div className="flex-1 px-4">
-            <SearchBar isCompact />
+            <SearchBar isCompact onSearch={onSearchSubmit} />
           </div>
         )}
         <div className="flex items-center gap-2">
@@ -43,7 +44,7 @@ export default function Header({
 
       {isFull && (
         <div className="flex justify-center pb-4">
-          <SearchBar />
+          <SearchBar onSearch={onSearchSubmit} />
         </div>
       )}
     </header>
