@@ -33,7 +33,13 @@ export default function SearchBar({ isCompact = false, onSearch }: SearchBarProp
   }
 
   if (isCompact) {
-    return <CompactSearchBar destination={destination} onSearch={handleSearch} />;
+    return (
+      <CompactSearchBar
+        destination={destination}
+        onDestinationChange={setDestination}
+        onSearch={handleSearch}
+      />
+    );
   }
 
   return (
