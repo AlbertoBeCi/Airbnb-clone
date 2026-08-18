@@ -101,3 +101,5 @@ export interface StickySection {
   id: string;
   label: string;
 }
+
+export type SortOrder = "asc" | "desc" | null;

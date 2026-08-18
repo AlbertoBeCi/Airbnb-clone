@@ -8,14 +8,9 @@ import type { ListingItem } from "@/lib/types";
 interface ListingsColumnProps {
   listings: ListingItem[];
   isLoading: boolean;
-  onHoverListing: (id: string | undefined) => void;
 }
 
-export default function ListingsColumn({
-  listings,
-  isLoading,
-  onHoverListing,
-}: ListingsColumnProps) {
+export default function ListingsColumn({ listings, isLoading }: ListingsColumnProps) {
   const [favoriteIds, setFavoriteIds] = useState<Set<string>>(new Set());
 
   function toggleFavorite(id: string) {
@@ -47,17 +42,12 @@ export default function ListingsColumn({
   return (
     <div className="grid grid-cols-1 gap-x-6 gap-y-10 overflow-y-auto p-6 sm:grid-cols-2 lg:grid-cols-3">
       {listings.map((listing) => (
-        <div
+        <ListingCard
           key={listing.id}
-          onMouseEnter={() => onHoverListing(listing.id)}
-          onMouseLeave={() => onHoverListing(undefined)}
-        >
-          <ListingCard
-            {...listing}
-            isFavorite={favoriteIds.has(listing.id)}
-            onToggleFavorite={toggleFavorite}
-          />
-        </div>
+          {...listing}
+          isFavorite={favoriteIds.has(listing.id)}
+          onToggleFavorite={toggleFavorite}
+        />
       ))}
     </div>
   );
