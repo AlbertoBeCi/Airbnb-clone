@@ -3,6 +3,7 @@
 import { useState } from "react";
 import CompactSearchBar from "./CompactSearchBar";
 import ExpandedSearchBar from "./ExpandedSearchBar";
+import { useSearchContext } from "./SearchContext";
 import type { GuestCounts, SearchParams } from "@/lib/types";
 
 interface SearchBarProps {
@@ -18,7 +19,7 @@ const EMPTY_GUESTS: GuestCounts = {
 };
 
 export default function SearchBar({ isCompact = false, onSearch }: SearchBarProps) {
-  const [destination, setDestination] = useState("");
+  const { destination, setDestination } = useSearchContext();
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
   const [guests, setGuests] = useState<GuestCounts>(EMPTY_GUESTS);

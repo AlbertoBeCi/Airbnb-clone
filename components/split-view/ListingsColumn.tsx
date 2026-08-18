@@ -27,6 +27,12 @@ export default function ListingsColumn({
     });
   }
 
+  if (listings.length === 0) {
+    return (
+      <p className="p-6 text-sm text-zinc-500">No se encontraron alojamientos.</p>
+    );
+  }
+
   return (
     <div className="grid grid-cols-2 gap-x-6 gap-y-10 overflow-y-auto p-6 sm:grid-cols-3 xl:grid-cols-4">
       {listings.map((listing) => (

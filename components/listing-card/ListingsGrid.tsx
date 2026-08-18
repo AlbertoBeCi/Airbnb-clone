@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import ListingCard from "./ListingCard";
+import { useFilteredListings } from "@/components/search-bar/useFilteredListings";
 import type { ListingItem } from "@/lib/types";
 
 interface ListingsGridProps {
@@ -9,6 +10,7 @@ interface ListingsGridProps {
 }
 
 export default function ListingsGrid({ listings }: ListingsGridProps) {
+  const filteredListings = useFilteredListings(listings);
   const [favoriteIds, setFavoriteIds] = useState<Set<string>>(new Set());
 
   function toggleFavorite(id: string) {
@@ -23,9 +25,13 @@ export default function ListingsGrid({ listings }: ListingsGridProps) {
     });
   }
 
+  if (filteredListings.length === 0) {
+    return <p className="text-sm text-zinc-500">No se encontraron alojamientos.</p>;
+  }
+
   return (
     <div className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
-      {listings.map((listing) => (
+      {filteredListings.map((listing) => (
         <ListingCard
           key={listing.id}
           {...listing}
