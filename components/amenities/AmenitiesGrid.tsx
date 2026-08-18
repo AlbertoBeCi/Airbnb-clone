@@ -6,10 +6,10 @@ interface AmenitiesGridProps {
   onShowAllModal?: () => void;
 }
 
-export default function AmenitiesGrid({
+const AmenitiesGrid = ({
   amenities,
   onShowAllModal,
-}: AmenitiesGridProps) {
+}: AmenitiesGridProps) => {
   return (
     <div className="border-b border-zinc-200 py-10">
       <h2 className="mb-6 text-xl font-semibold text-zinc-900">
@@ -29,4 +29,6 @@ export default function AmenitiesGrid({
       </button>
     </div>
   );
-}
+};
+
+export default AmenitiesGrid;

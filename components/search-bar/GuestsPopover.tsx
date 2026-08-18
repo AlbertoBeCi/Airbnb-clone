@@ -16,11 +16,11 @@ const ROWS: Array<{ key: keyof GuestCounts; label: string; min: number }> = [
   { key: "pets", label: "Mascotas", min: 0 },
 ];
 
-export default function GuestsPopover({
+const GuestsPopover = ({
   guests,
   onChange,
   onClose,
-}: GuestsPopoverProps) {
+}: GuestsPopoverProps) => {
   function updateCount(key: keyof GuestCounts, delta: number) {
     const nextValue = Math.max(0, guests[key] + delta);
     onChange({ ...guests, [key]: nextValue });
@@ -67,4 +67,6 @@ export default function GuestsPopover({
       </button>
     </div>
   );
-}
+};
+
+export default GuestsPopover;

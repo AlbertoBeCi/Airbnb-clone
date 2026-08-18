@@ -4,7 +4,7 @@ interface NavTabsProps {
   activeCategoryTab?: string;
 }
 
-export default function NavTabs({ activeCategoryTab = "stays" }: NavTabsProps) {
+const NavTabs = ({ activeCategoryTab = "stays" }: NavTabsProps) => {
   const desktopTabs = NAV_TABS.filter((tab) => tab.id !== "all");
 
   return (
@@ -30,4 +30,6 @@ export default function NavTabs({ activeCategoryTab = "stays" }: NavTabsProps) {
       })}
     </nav>
   );
-}
+};
+
+export default NavTabs;

@@ -3,7 +3,7 @@
 import { usePathname, useRouter } from "next/navigation";
 import Header from "./Header";
 
-export default function HeaderContainer() {
+const HeaderContainer = () => {
   const pathname = usePathname();
   const router = useRouter();
   const isFull = pathname === "/";
@@ -15,4 +15,6 @@ export default function HeaderContainer() {
       onSearchSubmit={() => router.push("/catalog")}
     />
   );
-}
+};
+
+export default HeaderContainer;

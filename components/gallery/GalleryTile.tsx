@@ -6,10 +6,12 @@ interface GalleryTileProps {
   className?: string;
 }
 
-export default function GalleryTile({ url, alt, className = "" }: GalleryTileProps) {
+const GalleryTile = ({ url, alt, className = "" }: GalleryTileProps) => {
   return (
     <div className={`relative overflow-hidden ${className}`}>
       <Image src={url} alt={alt} fill sizes="50vw" className="object-cover" />
     </div>
   );
-}
+};
+
+export default GalleryTile;

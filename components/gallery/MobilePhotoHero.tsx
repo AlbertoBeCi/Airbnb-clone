@@ -9,7 +9,7 @@ interface MobilePhotoHeroProps {
   photos: Array<{ id: string; url: string; alt: string }>;
 }
 
-export default function MobilePhotoHero({ photos }: MobilePhotoHeroProps) {
+const MobilePhotoHero = ({ photos }: MobilePhotoHeroProps) => {
   const [index, setIndex] = useState(0);
 
   function step(delta: number) {
@@ -48,4 +48,6 @@ export default function MobilePhotoHero({ photos }: MobilePhotoHeroProps) {
       </span>
     </div>
   );
-}
+};
+
+export default MobilePhotoHero;

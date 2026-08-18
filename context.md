@@ -178,3 +178,20 @@ Es la página de conversión donde el usuario evalúa a fondo la habitación ele
 * **Qué muestra:** Inicia con un **`ListingHeader`** con el título de la habitación y un gran **`PhotoGalleryGrid`** para ver el espacio en detalle. Al hacer scroll hacia abajo, aparece el **`SubheaderStickyNav`** para navegar por la página y la interfaz se divide según el `MainDetailLayout`:
   * **Columna principal (Izquierda):** Muestra toda la información descriptiva. Incluye el **`AmenitiesGrid`** (servicios que ofrece), la sección de fechas con el **`DatePickerCalendar`** (donde comprueba por cuánto tiempo está disponible), la **`ReviewsSection`** para leer experiencias de otros, y el **`HostProfileCard`** para conocer a su anfitrión.
   * **Columna lateral (Derecha):** Aquí se encuentra el componente más importante para su objetivo, el **`BookingFloatingWidget`**. Esta tarjeta se queda fija en la pantalla y le muestra un desglose transparente del precio total que le va a costar, confirma las fechas exactas que introdujo y le ofrece el botón final para "Reservar".
+
+---
+
+## 4. Especificaciones Derivadas de Capturas de Referencia (Mobile-First)
+
+Durante la implementación se recibieron capturas de la app real de Airbnb y checklists de requisitos que precisaron y, en algunos puntos, sustituyeron el diseño inicial de este documento. Rutas finales: `/` (Home), `/catalog` (Catálogo) y `/rooms/[id]` (Detalle).
+
+* **`Header` en móvil:** el `SearchBar` completo se colapsa a un único pill (icono + texto) por debajo del breakpoint `sm`; el `SearchBar` segmentado de 4 campos queda reservado a `sm:` en adelante.
+* **`CategoryPills`:** variante móvil de `NavTabs` con emoji (Todo/Alojamientos/Experiencias/Servicios), visible solo en móvil debajo del buscador de la Home.
+* **`CatalogMobileHeader`:** en `/catalog`, sustituye la fila logo+buscador por flecha de volver + título/subtítulo + icono de filtros, solo en móvil.
+* **Mapa del catálogo:** en escritorio se mantiene a la derecha (55/45) como en la sección 2; en móvil se apila **debajo** de la lista de tarjetas (no como vista superpuesta), montando una única instancia (`useIsDesktop`) para no duplicar el mapa. Usa `react-leaflet` + OpenStreetMap (pines reales por coordenadas) con un placeholder gris ("Mapa") como estado de carga.
+* **`ResultsHeader`:** número de resultados + orden Ascendente/Descendente por precio (`useState`), añadido sobre `SplitViewLayout`.
+* **Vista de detalle en móvil:** el `PhotoGalleryGrid` (grid asimétrico) se reserva a escritorio; en móvil se sustituye por `MobilePhotoHero`, una foto a pantalla completa con contador `x/N`, botones Anterior/Siguiente y acciones flotantes (volver, compartir, favorito).
+* **`ListingHeader` y `HostInfoRow`:** cabecera compacta (título, valoración, reseñas, `location`) y fila de anfitrión (avatar, nombre, años) independientes del `HostProfileCard` completo, que se mantiene más abajo en la página.
+* **`BackToCatalogLink`:** breadcrumb con `<Link href="/catalog">` en la parte superior de la vista de detalle.
+* **Reserva interactiva:** `BookingFloatingWidget` incorpora un contador de huéspedes (`useState`, límites 1..`maxGuests`) y campos de fecha de entrada/salida funcionales que recalculan el precio total según las noches seleccionadas (`useStaySelection`), sustituyendo el `guestsSummary` estático original.
+* **Carga simulada:** tanto la Home/Catálogo (`useSimulatedListings`) como la vista de detalle (`useSimulatedListingDetail`) usan `useEffect` + `setTimeout` para simular una petición real, mostrando un esqueleto mientras `isLoading` es `true`.

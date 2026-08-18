@@ -6,10 +6,10 @@ interface PhotoGalleryGridProps {
   onOpenGalleryModal?: () => void;
 }
 
-export default function PhotoGalleryGrid({
+const PhotoGalleryGrid = ({
   photos,
   onOpenGalleryModal,
-}: PhotoGalleryGridProps) {
+}: PhotoGalleryGridProps) => {
   const tiles = photos.slice(0, 5);
 
   return (
@@ -33,4 +33,6 @@ export default function PhotoGalleryGrid({
       </button>
     </div>
   );
-}
+};
+
+export default PhotoGalleryGrid;

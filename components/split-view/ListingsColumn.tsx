@@ -10,7 +10,7 @@ interface ListingsColumnProps {
   isLoading: boolean;
 }
 
-export default function ListingsColumn({ listings, isLoading }: ListingsColumnProps) {
+const ListingsColumn = ({ listings, isLoading }: ListingsColumnProps) => {
   const [favoriteIds, setFavoriteIds] = useState<Set<string>>(new Set());
 
   function toggleFavorite(id: string) {
@@ -51,4 +51,6 @@ export default function ListingsColumn({ listings, isLoading }: ListingsColumnPr
       ))}
     </div>
   );
-}
+};
+
+export default ListingsColumn;

@@ -15,7 +15,7 @@ const SECTIONS = [
   { id: "host", label: "Anfitrión" },
 ];
 
-export default function ListingDetailView({ listingId }: { listingId: string }) {
+const ListingDetailView = ({ listingId }: { listingId: string }) => {
   const [activeSectionId, setActiveSectionId] = useState("amenities");
   const { listing, isLoading } = useSimulatedListingDetail(listingId);
 
@@ -64,4 +64,6 @@ export default function ListingDetailView({ listingId }: { listingId: string }) 
       />
     </main>
   );
-}
+};
+
+export default ListingDetailView;

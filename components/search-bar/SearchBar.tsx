@@ -18,7 +18,7 @@ const EMPTY_GUESTS: GuestCounts = {
   pets: 0,
 };
 
-export default function SearchBar({ isCompact = false, onSearch }: SearchBarProps) {
+const SearchBar = ({ isCompact = false, onSearch }: SearchBarProps) => {
   const { destination, setDestination } = useSearchContext();
   const [checkInDate, setCheckInDate] = useState("");
   const [checkOutDate, setCheckOutDate] = useState("");
@@ -67,4 +67,6 @@ export default function SearchBar({ isCompact = false, onSearch }: SearchBarProp
       </div>
     </>
   );
-}
+};
+
+export default SearchBar;

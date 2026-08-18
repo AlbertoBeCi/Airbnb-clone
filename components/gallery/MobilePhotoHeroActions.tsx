@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { ArrowLeft, Share2, Heart } from "lucide-react";
 
-export default function MobilePhotoHeroActions() {
+const MobilePhotoHeroActions = () => {
   const router = useRouter();
 
   return (
@@ -34,4 +34,6 @@ export default function MobilePhotoHeroActions() {
       </div>
     </>
   );
-}
+};
+
+export default MobilePhotoHeroActions;

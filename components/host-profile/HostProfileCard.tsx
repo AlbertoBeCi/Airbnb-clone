@@ -13,7 +13,7 @@ interface HostProfileCardProps {
   bio?: string;
 }
 
-export default function HostProfileCard(props: HostProfileCardProps) {
+const HostProfileCard = (props: HostProfileCardProps) => {
   return (
     <div className="grid grid-cols-1 gap-8 border-b border-zinc-200 py-10 sm:grid-cols-[220px_1fr]">
       <HostStatsPanel
@@ -31,4 +31,6 @@ export default function HostProfileCard(props: HostProfileCardProps) {
       />
     </div>
   );
-}
+};
+
+export default HostProfileCard;

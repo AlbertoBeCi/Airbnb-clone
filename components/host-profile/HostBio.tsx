@@ -6,7 +6,7 @@ interface HostBioProps {
   bio?: string;
 }
 
-export default function HostBio({ languages, responseRate, bio }: HostBioProps) {
+const HostBio = ({ languages, responseRate, bio }: HostBioProps) => {
   return (
     <div className="flex flex-col justify-center gap-4">
       {bio && <p className="text-sm leading-6 text-zinc-700">{bio}</p>}
@@ -22,4 +22,6 @@ export default function HostBio({ languages, responseRate, bio }: HostBioProps) 
       )}
     </div>
   );
-}
+};
+
+export default HostBio;

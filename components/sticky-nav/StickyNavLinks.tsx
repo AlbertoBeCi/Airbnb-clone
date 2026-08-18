@@ -5,10 +5,10 @@ interface StickyNavLinksProps {
   activeSectionId: string;
 }
 
-export default function StickyNavLinks({
+const StickyNavLinks = ({
   sections,
   activeSectionId,
-}: StickyNavLinksProps) {
+}: StickyNavLinksProps) => {
   function scrollToSection(id: string) {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   }
@@ -31,4 +31,6 @@ export default function StickyNavLinks({
       ))}
     </div>
   );
-}
+};
+
+export default StickyNavLinks;

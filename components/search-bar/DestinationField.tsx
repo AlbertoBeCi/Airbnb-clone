@@ -5,10 +5,10 @@ interface DestinationFieldProps {
   onChange: (value: string) => void;
 }
 
-export default function DestinationField({
+const DestinationField = ({
   destination,
   onChange,
-}: DestinationFieldProps) {
+}: DestinationFieldProps) => {
   return (
     <SearchBarField label="Dónde">
       <input
@@ -19,4 +19,6 @@ export default function DestinationField({
       />
     </SearchBarField>
   );
-}
+};
+
+export default DestinationField;

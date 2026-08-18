@@ -16,7 +16,7 @@ interface ExpandedSearchBarProps {
   onSearch: () => void;
 }
 
-export default function ExpandedSearchBar({
+const ExpandedSearchBar = ({
   destination,
   checkInDate,
   checkOutDate,
@@ -26,7 +26,7 @@ export default function ExpandedSearchBar({
   onCheckOutChange,
   onGuestsChange,
   onSearch,
-}: ExpandedSearchBarProps) {
+}: ExpandedSearchBarProps) => {
   return (
     <div className="relative inline-flex items-center rounded-full border border-zinc-200 shadow-md">
       <DestinationField destination={destination} onChange={onDestinationChange} />
@@ -48,4 +48,6 @@ export default function ExpandedSearchBar({
       </button>
     </div>
   );
-}
+};
+
+export default ExpandedSearchBar;

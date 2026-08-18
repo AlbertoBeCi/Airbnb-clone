@@ -19,7 +19,7 @@ function createPriceIcon(price: number | string) {
   });
 }
 
-export default function LeafletMap({ listings }: LeafletMapProps) {
+const LeafletMap = ({ listings }: LeafletMapProps) => {
   const bounds = listings.map((listing): [number, number] => [listing.lat, listing.lng]);
 
   return (
@@ -46,4 +46,6 @@ export default function LeafletMap({ listings }: LeafletMapProps) {
       ))}
     </MapContainer>
   );
-}
+};
+
+export default LeafletMap;

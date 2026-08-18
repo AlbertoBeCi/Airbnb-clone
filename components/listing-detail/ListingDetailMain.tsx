@@ -3,7 +3,7 @@ import ReviewsSection from "@/components/reviews/ReviewsSection";
 import HostProfileCard from "@/components/host-profile/HostProfileCard";
 import type { ListingDetail } from "@/lib/types";
 
-export default function ListingDetailMain({ listing }: { listing: ListingDetail }) {
+const ListingDetailMain = ({ listing }: { listing: ListingDetail }) => {
   return (
     <div>
       <p className="border-b border-zinc-200 pb-8 text-zinc-700">
@@ -35,4 +35,6 @@ export default function ListingDetailMain({ listing }: { listing: ListingDetail 
       </div>
     </div>
   );
-}
+};
+
+export default ListingDetailMain;

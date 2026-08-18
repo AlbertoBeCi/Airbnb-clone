@@ -11,7 +11,7 @@ interface BookingDatesGuestsProps {
   onGuestsChange: (guests: number) => void;
 }
 
-export default function BookingDatesGuests({
+const BookingDatesGuests = ({
   checkIn,
   checkOut,
   onCheckInChange,
@@ -19,7 +19,7 @@ export default function BookingDatesGuests({
   guests,
   maxGuests,
   onGuestsChange,
-}: BookingDatesGuestsProps) {
+}: BookingDatesGuestsProps) => {
   return (
     <div className="mt-4 rounded-xl border border-zinc-300">
       <BookingDateInputs
@@ -38,4 +38,6 @@ export default function BookingDatesGuests({
       </div>
     </div>
   );
-}
+};
+
+export default BookingDatesGuests;

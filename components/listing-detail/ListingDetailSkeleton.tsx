@@ -1,4 +1,4 @@
-export default function ListingDetailSkeleton() {
+const ListingDetailSkeleton = () => {
   return (
     <main className="flex-1 animate-pulse px-4 pt-6 sm:px-8">
       <div className="mb-4 h-7 w-2/3 rounded bg-zinc-200 sm:w-1/3" />
@@ -10,4 +10,6 @@ export default function ListingDetailSkeleton() {
       </div>
     </main>
   );
-}
+};
+
+export default ListingDetailSkeleton;

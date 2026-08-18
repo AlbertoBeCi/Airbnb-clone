@@ -8,7 +8,7 @@ interface ReviewCardProps {
   comment: string;
 }
 
-export default function ReviewCard({ author, rating, date, comment }: ReviewCardProps) {
+const ReviewCard = ({ author, rating, date, comment }: ReviewCardProps) => {
   return (
     <div className="flex flex-col gap-3">
       <div className="flex items-center gap-3">
@@ -29,4 +29,6 @@ export default function ReviewCard({ author, rating, date, comment }: ReviewCard
       <p className="text-sm leading-6 text-zinc-700">{comment}</p>
     </div>
   );
-}
+};
+
+export default ReviewCard;

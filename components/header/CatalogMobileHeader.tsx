@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { ArrowLeft, SlidersHorizontal } from "lucide-react";
 import { useSearchContext } from "@/components/search-bar/SearchContext";
 
-export default function CatalogMobileHeader() {
+const CatalogMobileHeader = () => {
   const router = useRouter();
   const { destination } = useSearchContext();
   const title = destination ? `Alojamientos en ${destination}` : "Alojamientos";
@@ -34,4 +34,6 @@ export default function CatalogMobileHeader() {
       </button>
     </div>
   );
-}
+};
+
+export default CatalogMobileHeader;

@@ -11,7 +11,7 @@ interface ListingCardDetailsProps {
   reviewsCount?: number;
 }
 
-export default function ListingCardDetails({
+const ListingCardDetails = ({
   title,
   description,
   datesAvailable,
@@ -19,7 +19,7 @@ export default function ListingCardDetails({
   totalPrice,
   rating,
   reviewsCount,
-}: ListingCardDetailsProps) {
+}: ListingCardDetailsProps) => {
   return (
     <div className="mt-2 flex flex-col text-sm">
       <div className="flex items-start justify-between gap-2">
@@ -42,4 +42,6 @@ export default function ListingCardDetails({
       </p>
     </div>
   );
-}
+};
+
+export default ListingCardDetails;

@@ -16,6 +16,8 @@ interface InteractiveMapProps {
   listings: ListingItem[];
 }
 
-export default function InteractiveMap({ listings }: InteractiveMapProps) {
+const InteractiveMap = ({ listings }: InteractiveMapProps) => {
   return <LeafletMap listings={listings} />;
-}
+};
+
+export default InteractiveMap;

@@ -18,7 +18,7 @@ interface ListingCardProps {
   onToggleFavorite: (id: string) => void;
 }
 
-export default function ListingCard({
+const ListingCard = ({
   id,
   images,
   badge,
@@ -31,7 +31,7 @@ export default function ListingCard({
   reviewsCount,
   isFavorite,
   onToggleFavorite,
-}: ListingCardProps) {
+}: ListingCardProps) => {
   return (
     <Link href={`/rooms/${id}`} className="block">
       <ListingCardCarousel
@@ -52,4 +52,6 @@ export default function ListingCard({
       />
     </Link>
   );
-}
+};
+
+export default ListingCard;

@@ -14,13 +14,13 @@ interface ListingCardCarouselProps {
   onToggleFavorite: () => void;
 }
 
-export default function ListingCardCarousel({
+const ListingCardCarousel = ({
   images,
   title,
   badge,
   isFavorite,
   onToggleFavorite,
-}: ListingCardCarouselProps) {
+}: ListingCardCarouselProps) => {
   const [index, setIndex] = useState(0);
 
   function step(delta: number, event: React.MouseEvent) {
@@ -75,4 +75,6 @@ export default function ListingCardCarousel({
       )}
     </div>
   );
-}
+};
+
+export default ListingCardCarousel;

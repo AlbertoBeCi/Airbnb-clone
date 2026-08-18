@@ -10,7 +10,7 @@ interface GuestsFieldProps {
   onChange: (guests: GuestCounts) => void;
 }
 
-export default function GuestsField({ guests, onChange }: GuestsFieldProps) {
+const GuestsField = ({ guests, onChange }: GuestsFieldProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const total = guests.adults + guests.children + guests.infants + guests.pets;
 
@@ -32,4 +32,6 @@ export default function GuestsField({ guests, onChange }: GuestsFieldProps) {
       )}
     </SearchBarField>
   );
-}
+};
+
+export default GuestsField;

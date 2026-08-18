@@ -17,7 +17,7 @@ interface BookingFloatingWidgetProps {
   onReserveSubmit?: () => void;
 }
 
-export default function BookingFloatingWidget({
+const BookingFloatingWidget = ({
   pricePerNight,
   fallbackTotalPrice,
   currency,
@@ -27,7 +27,7 @@ export default function BookingFloatingWidget({
   minNights,
   maxNights,
   onReserveSubmit,
-}: BookingFloatingWidgetProps) {
+}: BookingFloatingWidgetProps) => {
   const stay = useStaySelection(pricePerNight, fallbackTotalPrice);
   const urgencyNotice = stay.nights
     ? `${stay.nights} ${stay.nights === 1 ? "noche" : "noches"} seleccionadas`
@@ -66,4 +66,6 @@ export default function BookingFloatingWidget({
       />
     </div>
   );
-}
+};
+
+export default BookingFloatingWidget;

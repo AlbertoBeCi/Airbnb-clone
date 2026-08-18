@@ -7,11 +7,11 @@ interface RatingsBreakdownProps {
   breakdown: RatingCategory[];
 }
 
-export default function RatingsBreakdown({
+const RatingsBreakdown = ({
   overallScore,
   totalReviews,
   breakdown,
-}: RatingsBreakdownProps) {
+}: RatingsBreakdownProps) => {
   return (
     <div className="border-b border-zinc-200 pb-10">
       <h2 className="mb-6 flex items-center gap-2 text-xl font-semibold text-zinc-900">
@@ -39,4 +39,6 @@ export default function RatingsBreakdown({
       </div>
     </div>
   );
-}
+};
+
+export default RatingsBreakdown;

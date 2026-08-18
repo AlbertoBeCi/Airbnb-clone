@@ -9,12 +9,12 @@ interface SubheaderStickyNavProps {
   onReserveClick?: () => void;
 }
 
-export default function SubheaderStickyNav({
+const SubheaderStickyNav = ({
   sections,
   activeSectionId,
   listingSummary,
   onReserveClick,
-}: SubheaderStickyNavProps) {
+}: SubheaderStickyNavProps) => {
   return (
     <div className="sticky top-[65px] z-40 hidden items-center justify-between border-b border-zinc-200 bg-white px-4 sm:flex sm:px-8">
       <StickyNavLinks sections={sections} activeSectionId={activeSectionId} />
@@ -24,4 +24,6 @@ export default function SubheaderStickyNav({
       />
     </div>
   );
-}
+};
+
+export default SubheaderStickyNav;

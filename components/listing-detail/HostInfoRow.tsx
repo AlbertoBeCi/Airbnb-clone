@@ -6,11 +6,11 @@ interface HostInfoRowProps {
   yearsHosting: number;
 }
 
-export default function HostInfoRow({
+const HostInfoRow = ({
   hostName,
   avatarUrl,
   yearsHosting,
-}: HostInfoRowProps) {
+}: HostInfoRowProps) => {
   return (
     <div className="flex items-center gap-3 border-b border-zinc-200 py-6">
       <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-full bg-zinc-200">
@@ -22,4 +22,6 @@ export default function HostInfoRow({
       </div>
     </div>
   );
-}
+};
+
+export default HostInfoRow;

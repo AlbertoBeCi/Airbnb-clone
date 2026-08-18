@@ -7,12 +7,12 @@ interface BookingHeaderProps {
   reviewsCount: number;
 }
 
-export default function BookingHeader({
+const BookingHeader = ({
   priceTotal,
   currency,
   rating,
   reviewsCount,
-}: BookingHeaderProps) {
+}: BookingHeaderProps) => {
   return (
     <div className="flex items-center justify-between">
       <p className="text-xl">
@@ -27,4 +27,6 @@ export default function BookingHeader({
       </span>
     </div>
   );
-}
+};
+
+export default BookingHeader;

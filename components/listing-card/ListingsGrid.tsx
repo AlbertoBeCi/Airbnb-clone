@@ -11,7 +11,7 @@ interface ListingsGridProps {
   listings: ListingItem[];
 }
 
-export default function ListingsGrid({ listings }: ListingsGridProps) {
+const ListingsGrid = ({ listings }: ListingsGridProps) => {
   const { listings: loadedListings, isLoading } = useSimulatedListings(listings);
   const filteredListings = useFilteredListings(loadedListings);
   const [favoriteIds, setFavoriteIds] = useState<Set<string>>(new Set());
@@ -48,4 +48,6 @@ export default function ListingsGrid({ listings }: ListingsGridProps) {
       ))}
     </div>
   );
-}
+};
+
+export default ListingsGrid;

@@ -4,9 +4,9 @@ interface CategoryPillsProps {
   activeCategoryTab?: string;
 }
 
-export default function CategoryPills({
+const CategoryPills = ({
   activeCategoryTab = "all",
-}: CategoryPillsProps) {
+}: CategoryPillsProps) => {
   return (
     <nav
       aria-label="Categorías"
@@ -31,4 +31,6 @@ export default function CategoryPills({
       })}
     </nav>
   );
-}
+};
+
+export default CategoryPills;

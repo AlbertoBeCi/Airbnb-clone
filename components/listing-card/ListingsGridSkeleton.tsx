@@ -3,10 +3,10 @@ interface ListingsGridSkeletonProps {
   count?: number;
 }
 
-export default function ListingsGridSkeleton({
+const ListingsGridSkeleton = ({
   columnsClassName = "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-6",
   count = 6,
-}: ListingsGridSkeletonProps) {
+}: ListingsGridSkeletonProps) => {
   return (
     <div
       role="status"
@@ -23,4 +23,6 @@ export default function ListingsGridSkeleton({
       ))}
     </div>
   );
-}
+};
+
+export default ListingsGridSkeleton;

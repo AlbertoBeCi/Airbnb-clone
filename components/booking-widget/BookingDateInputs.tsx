@@ -5,12 +5,12 @@ interface BookingDateInputsProps {
   onCheckOutChange: (value: string) => void;
 }
 
-export default function BookingDateInputs({
+const BookingDateInputs = ({
   checkIn,
   checkOut,
   onCheckInChange,
   onCheckOutChange,
-}: BookingDateInputsProps) {
+}: BookingDateInputsProps) => {
   return (
     <div className="grid grid-cols-2 divide-x divide-zinc-300">
       <div className="p-3">
@@ -39,4 +39,6 @@ export default function BookingDateInputs({
       </div>
     </div>
   );
-}
+};
+
+export default BookingDateInputs;

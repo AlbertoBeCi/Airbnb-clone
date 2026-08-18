@@ -8,12 +8,12 @@ interface ResultsHeaderProps {
   onSortChange: (order: SortOrder) => void;
 }
 
-export default function ResultsHeader({
+const ResultsHeader = ({
   count,
   isLoading,
   sortOrder,
   onSortChange,
-}: ResultsHeaderProps) {
+}: ResultsHeaderProps) => {
   function toggleSort(order: "asc" | "desc") {
     onSortChange(sortOrder === order ? null : order);
   }
@@ -50,4 +50,6 @@ export default function ResultsHeader({
       </div>
     </div>
   );
-}
+};
+
+export default ResultsHeader;

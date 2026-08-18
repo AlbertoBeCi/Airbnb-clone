@@ -8,12 +8,12 @@ interface ListingHeaderProps {
   location: string;
 }
 
-export default function ListingHeader({
+const ListingHeader = ({
   title,
   rating,
   reviewsCount,
   location,
-}: ListingHeaderProps) {
+}: ListingHeaderProps) => {
   return (
     <div className="px-4 pt-4 sm:px-0 sm:pt-0">
       <h1 className="text-2xl font-semibold text-zinc-900">{title}</h1>
@@ -25,4 +25,6 @@ export default function ListingHeader({
       </div>
     </div>
   );
-}
+};
+
+export default ListingHeader;

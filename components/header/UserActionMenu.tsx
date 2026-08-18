@@ -11,7 +11,7 @@ interface UserActionMenuProps {
 const GUEST_OPTIONS = ["Reservas", "Mensajes", "Cuenta"];
 const HOST_OPTIONS = ["Poner mi espacio en Airbnb", "Ayuda"];
 
-export default function UserActionMenu({ userSession }: UserActionMenuProps) {
+const UserActionMenu = ({ userSession }: UserActionMenuProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -53,4 +53,6 @@ export default function UserActionMenu({ userSession }: UserActionMenuProps) {
       )}
     </div>
   );
-}
+};
+
+export default UserActionMenu;

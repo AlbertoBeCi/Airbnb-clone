@@ -6,13 +6,13 @@ interface MobileReserveBarProps {
   onReserveSubmit?: () => void;
 }
 
-export default function MobileReserveBar({
+const MobileReserveBar = ({
   originalPrice,
   priceTotal,
   currency,
   datesAvailable,
   onReserveSubmit,
-}: MobileReserveBarProps) {
+}: MobileReserveBarProps) => {
   const symbol = currency === "EUR" ? "€" : currency;
 
   return (
@@ -38,4 +38,6 @@ export default function MobileReserveBar({
       </button>
     </div>
   );
-}
+};
+
+export default MobileReserveBar;

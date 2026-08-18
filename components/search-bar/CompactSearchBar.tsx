@@ -6,11 +6,11 @@ interface CompactSearchBarProps {
   onSearch: () => void;
 }
 
-export default function CompactSearchBar({
+const CompactSearchBar = ({
   destination,
   onDestinationChange,
   onSearch,
-}: CompactSearchBarProps) {
+}: CompactSearchBarProps) => {
   return (
     <form
       onSubmit={(event) => {
@@ -28,4 +28,6 @@ export default function CompactSearchBar({
       />
     </form>
   );
-}
+};
+
+export default CompactSearchBar;

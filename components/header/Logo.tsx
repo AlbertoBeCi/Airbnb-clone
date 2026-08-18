@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Home } from "lucide-react";
 
-export default function Logo() {
+const Logo = () => {
   return (
     <Link
       href="/"
@@ -14,4 +14,6 @@ export default function Logo() {
       </span>
     </Link>
   );
-}
+};
+
+export default Logo;

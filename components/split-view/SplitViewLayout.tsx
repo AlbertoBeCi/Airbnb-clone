@@ -17,7 +17,7 @@ function toNumericPrice(listing: ListingItem): number {
   return typeof listing.totalPrice === "number" ? listing.totalPrice : 0;
 }
 
-export default function SplitViewLayout({ listings }: SplitViewLayoutProps) {
+const SplitViewLayout = ({ listings }: SplitViewLayoutProps) => {
   const { listings: loadedListings, isLoading } = useSimulatedListings(listings);
   const filteredListings = useFilteredListings(loadedListings);
   const [sortOrder, setSortOrder] = useState<SortOrder>(null);
@@ -60,4 +60,6 @@ export default function SplitViewLayout({ listings }: SplitViewLayoutProps) {
       <div className="h-80 p-6">{map}</div>
     </div>
   );
-}
+};
+
+export default SplitViewLayout;

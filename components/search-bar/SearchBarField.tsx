@@ -7,12 +7,12 @@ interface SearchBarFieldProps {
   children: ReactNode;
 }
 
-export default function SearchBarField({
+const SearchBarField = ({
   label,
   isLast = false,
   className = "",
   children,
-}: SearchBarFieldProps) {
+}: SearchBarFieldProps) => {
   return (
     <div
       className={`relative flex flex-col justify-center px-6 py-2.5 ${
@@ -23,4 +23,6 @@ export default function SearchBarField({
       {children}
     </div>
   );
-}
+};
+
+export default SearchBarField;

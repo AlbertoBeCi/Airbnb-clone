@@ -9,12 +9,12 @@ interface ReviewsSectionProps {
   reviews: Review[];
 }
 
-export default function ReviewsSection({
+const ReviewsSection = ({
   overallScore,
   totalReviews,
   breakdown,
   reviews,
-}: ReviewsSectionProps) {
+}: ReviewsSectionProps) => {
   return (
     <div className="border-b border-zinc-200 py-10">
       <RatingsBreakdown
@@ -29,4 +29,6 @@ export default function ReviewsSection({
       </div>
     </div>
   );
-}
+};
+
+export default ReviewsSection;

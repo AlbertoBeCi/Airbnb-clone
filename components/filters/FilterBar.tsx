@@ -5,7 +5,7 @@ import { SlidersHorizontal } from "lucide-react";
 import FilterPill from "./FilterPill";
 import { FILTER_OPTIONS } from "@/lib/mock-data";
 
-export default function FilterBar() {
+const FilterBar = () => {
   const [selectedId, setSelectedId] = useState<string | null>(null);
 
   return (
@@ -31,4 +31,6 @@ export default function FilterBar() {
       </button>
     </div>
   );
-}
+};
+
+export default FilterBar;

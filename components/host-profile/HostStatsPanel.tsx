@@ -10,14 +10,14 @@ interface HostStatsPanelProps {
   yearsHosting: number;
 }
 
-export default function HostStatsPanel({
+const HostStatsPanel = ({
   hostName,
   avatarUrl,
   isSuperhost,
   reviewsCount,
   rating,
   yearsHosting,
-}: HostStatsPanelProps) {
+}: HostStatsPanelProps) => {
   return (
     <div className="flex flex-col items-center gap-3 rounded-2xl border border-zinc-200 p-6 text-center">
       <div className="relative h-16 w-16 overflow-hidden rounded-full">
@@ -43,4 +43,6 @@ export default function HostStatsPanel({
       </div>
     </div>
   );
-}
+};
+
+export default HostStatsPanel;

@@ -8,13 +8,13 @@ interface FilterPillProps {
   onClick: (id: string) => void;
 }
 
-export default function FilterPill({
+const FilterPill = ({
   id,
   label,
   icon: Icon,
   isSelected,
   onClick,
-}: FilterPillProps) {
+}: FilterPillProps) => {
   return (
     <button
       type="button"
@@ -29,4 +29,6 @@ export default function FilterPill({
       <span className="whitespace-nowrap font-medium">{label}</span>
     </button>
   );
-}
+};
+
+export default FilterPill;

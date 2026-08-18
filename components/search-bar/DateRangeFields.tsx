@@ -7,12 +7,12 @@ interface DateRangeFieldsProps {
   onCheckOutChange: (value: string) => void;
 }
 
-export default function DateRangeFields({
+const DateRangeFields = ({
   checkInDate,
   checkOutDate,
   onCheckInChange,
   onCheckOutChange,
-}: DateRangeFieldsProps) {
+}: DateRangeFieldsProps) => {
   return (
     <>
       <SearchBarField label="Llegada">
@@ -34,4 +34,6 @@ export default function DateRangeFields({
       </SearchBarField>
     </>
   );
-}
+};
+
+export default DateRangeFields;

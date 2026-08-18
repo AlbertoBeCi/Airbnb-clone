@@ -5,10 +5,10 @@ interface StickyNavSummaryProps {
   onReserveClick?: () => void;
 }
 
-export default function StickyNavSummary({
+const StickyNavSummary = ({
   listingSummary,
   onReserveClick,
-}: StickyNavSummaryProps) {
+}: StickyNavSummaryProps) => {
   if (!listingSummary) return null;
 
   return (
@@ -30,4 +30,6 @@ export default function StickyNavSummary({
       </button>
     </div>
   );
-}
+};
+
+export default StickyNavSummary;

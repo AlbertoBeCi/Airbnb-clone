@@ -5,12 +5,12 @@ interface BookingPriceBreakdownProps {
   pricePerNight?: number;
 }
 
-export default function BookingPriceBreakdown({
+const BookingPriceBreakdown = ({
   priceTotal,
   currency,
   nights,
   pricePerNight,
-}: BookingPriceBreakdownProps) {
+}: BookingPriceBreakdownProps) => {
   const symbol = currency === "EUR" ? "€" : currency;
   const serviceFee = Math.round(priceTotal * 0.12);
   const grandTotal = priceTotal + serviceFee;
@@ -41,4 +41,6 @@ export default function BookingPriceBreakdown({
       </div>
     </div>
   );
-}
+};
+
+export default BookingPriceBreakdown;

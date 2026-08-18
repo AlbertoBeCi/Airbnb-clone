@@ -15,13 +15,13 @@ interface HeaderProps {
   onSearchSubmit?: (params: SearchParams) => void;
 }
 
-export default function Header({
+const Header = ({
   variant,
   activeCategoryTab,
   userSession,
   isCatalog = false,
   onSearchSubmit,
-}: HeaderProps) {
+}: HeaderProps) => {
   const isFull = variant === "full";
   const hideTopRowOnMobile = !isFull && isCatalog;
 
@@ -62,4 +62,6 @@ export default function Header({
       )}
     </header>
   );
-}
+};
+
+export default Header;

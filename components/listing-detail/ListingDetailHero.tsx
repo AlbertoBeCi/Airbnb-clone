@@ -1,12 +1,14 @@
 import PhotoGalleryGrid from "@/components/gallery/PhotoGalleryGrid";
 import MobilePhotoHero from "@/components/gallery/MobilePhotoHero";
+import BackToCatalogLink from "./BackToCatalogLink";
 import ListingHeader from "./ListingHeader";
 import HostInfoRow from "./HostInfoRow";
 import type { ListingDetail } from "@/lib/types";
 
-export default function ListingDetailHero({ listing }: { listing: ListingDetail }) {
+const ListingDetailHero = ({ listing }: { listing: ListingDetail }) => {
   return (
     <>
+      <BackToCatalogLink />
       <MobilePhotoHero photos={listing.photos} />
       <div className="hidden sm:block sm:px-8 sm:pt-6">
         <PhotoGalleryGrid photos={listing.photos} />
@@ -27,4 +29,6 @@ export default function ListingDetailHero({ listing }: { listing: ListingDetail 
       </div>
     </>
   );
-}
+};
+
+export default ListingDetailHero;
