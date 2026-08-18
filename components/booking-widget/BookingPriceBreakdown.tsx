@@ -1,11 +1,15 @@
 interface BookingPriceBreakdownProps {
   priceTotal: number;
   currency: string;
+  nights?: number;
+  pricePerNight?: number;
 }
 
 export default function BookingPriceBreakdown({
   priceTotal,
   currency,
+  nights,
+  pricePerNight,
 }: BookingPriceBreakdownProps) {
   const symbol = currency === "EUR" ? "€" : currency;
   const serviceFee = Math.round(priceTotal * 0.12);
@@ -14,7 +18,11 @@ export default function BookingPriceBreakdown({
   return (
     <div className="mt-5 space-y-3 text-sm text-zinc-700">
       <div className="flex justify-between">
-        <span>Precio del alojamiento</span>
+        <span>
+          {nights && pricePerNight
+            ? `${pricePerNight} € x ${nights} ${nights === 1 ? "noche" : "noches"}`
+            : "Precio del alojamiento"}
+        </span>
         <span>
           {priceTotal} {symbol}
         </span>

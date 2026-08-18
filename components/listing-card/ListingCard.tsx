@@ -33,7 +33,7 @@ export default function ListingCard({
   onToggleFavorite,
 }: ListingCardProps) {
   return (
-    <Link href={`/listing/${id}`} className="block">
+    <Link href={`/rooms/${id}`} className="block">
       <ListingCardCarousel
         images={images}
         title={title}

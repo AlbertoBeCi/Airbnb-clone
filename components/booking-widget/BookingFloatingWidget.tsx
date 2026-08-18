@@ -1,42 +1,54 @@
+"use client";
+
 import BookingHeader from "./BookingHeader";
 import BookingDatesGuests from "./BookingDatesGuests";
 import BookingPriceBreakdown from "./BookingPriceBreakdown";
+import { useStaySelection } from "./useStaySelection";
 
 interface BookingFloatingWidgetProps {
-  priceTotal: number;
+  pricePerNight: number;
+  fallbackTotalPrice: number;
   currency: string;
   rating: number;
   reviewsCount: number;
-  checkInDate: Date | null;
-  checkOutDate: Date | null;
-  guestsSummary: string;
-  urgencyNotice?: string;
+  maxGuests: number;
+  minNights: number;
+  maxNights: number;
   onReserveSubmit?: () => void;
 }
 
 export default function BookingFloatingWidget({
-  priceTotal,
+  pricePerNight,
+  fallbackTotalPrice,
   currency,
   rating,
   reviewsCount,
-  checkInDate,
-  checkOutDate,
-  guestsSummary,
-  urgencyNotice,
+  maxGuests,
+  minNights,
+  maxNights,
   onReserveSubmit,
 }: BookingFloatingWidgetProps) {
+  const stay = useStaySelection(pricePerNight, fallbackTotalPrice);
+  const urgencyNotice = stay.nights
+    ? `${stay.nights} ${stay.nights === 1 ? "noche" : "noches"} seleccionadas`
+    : `Estancia de ${minNights} a ${maxNights} noches`;
+
   return (
     <div className="sticky top-[90px] rounded-2xl border border-zinc-200 p-6 shadow-lg">
       <BookingHeader
-        priceTotal={priceTotal}
+        priceTotal={stay.priceTotal}
         currency={currency}
         rating={rating}
         reviewsCount={reviewsCount}
       />
       <BookingDatesGuests
-        checkInDate={checkInDate}
-        checkOutDate={checkOutDate}
-        guestsSummary={guestsSummary}
+        checkIn={stay.checkIn}
+        checkOut={stay.checkOut}
+        onCheckInChange={stay.setCheckIn}
+        onCheckOutChange={stay.setCheckOut}
+        guests={stay.guests}
+        maxGuests={maxGuests}
+        onGuestsChange={stay.setGuests}
       />
       <button
         type="button"
@@ -45,10 +57,13 @@ export default function BookingFloatingWidget({
       >
         Reservar
       </button>
-      {urgencyNotice && (
-        <p className="mt-3 text-center text-xs text-zinc-500">{urgencyNotice}</p>
-      )}
-      <BookingPriceBreakdown priceTotal={priceTotal} currency={currency} />
+      <p className="mt-3 text-center text-xs text-zinc-500">{urgencyNotice}</p>
+      <BookingPriceBreakdown
+        priceTotal={stay.priceTotal}
+        currency={currency}
+        nights={stay.nights}
+        pricePerNight={pricePerNight}
+      />
     </div>
   );
 }

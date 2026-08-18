@@ -4,7 +4,7 @@ import { getListingById } from "@/lib/mock-data";
 
 export default async function ListingDetailPage({
   params,
-}: PageProps<"/listing/[id]">) {
+}: PageProps<"/rooms/[id]">) {
   const { id } = await params;
 
   if (!getListingById(id)) {

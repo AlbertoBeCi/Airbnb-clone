@@ -31,6 +31,7 @@ export interface ListingItem {
   badge?: ListingBadge;
   title: string;
   description: string;
+  location: string;
   datesAvailable?: string;
   pricePerNight?: number;
   originalPrice?: number;

@@ -1,13 +1,13 @@
 "use client";
 
 import { useState } from "react";
-import PhotoGalleryGrid from "@/components/gallery/PhotoGalleryGrid";
-import MobilePhotoHero from "@/components/gallery/MobilePhotoHero";
 import SubheaderStickyNav from "@/components/sticky-nav/SubheaderStickyNav";
 import BookingFloatingWidget from "@/components/booking-widget/BookingFloatingWidget";
 import MobileReserveBar from "@/components/booking-widget/MobileReserveBar";
+import ListingDetailHero from "./ListingDetailHero";
 import ListingDetailMain from "./ListingDetailMain";
-import { getListingDetail } from "@/lib/mock-data";
+import ListingDetailSkeleton from "./ListingDetailSkeleton";
+import { useSimulatedListingDetail } from "./useSimulatedListingDetail";
 
 const SECTIONS = [
   { id: "amenities", label: "Servicios" },
@@ -17,22 +17,17 @@ const SECTIONS = [
 
 export default function ListingDetailView({ listingId }: { listingId: string }) {
   const [activeSectionId, setActiveSectionId] = useState("amenities");
-  const listing = getListingDetail(listingId);
+  const { listing, isLoading } = useSimulatedListingDetail(listingId);
 
-  if (!listing) return null;
+  if (isLoading || !listing) {
+    return <ListingDetailSkeleton />;
+  }
 
   const priceTotal = typeof listing.totalPrice === "number" ? listing.totalPrice : 0;
 
   return (
     <main className="flex-1 pb-24 sm:pb-0">
-      <MobilePhotoHero photos={listing.photos} />
-      <div className="hidden px-4 pt-6 sm:block sm:px-8">
-        <h1 className="mb-4 text-2xl font-semibold text-zinc-900">{listing.title}</h1>
-        <PhotoGalleryGrid photos={listing.photos} />
-      </div>
-      <h1 className="px-4 pt-4 text-2xl font-semibold text-zinc-900 sm:hidden">
-        {listing.title}
-      </h1>
+      <ListingDetailHero listing={listing} />
 
       <SubheaderStickyNav
         sections={SECTIONS}
@@ -49,14 +44,14 @@ export default function ListingDetailView({ listingId }: { listingId: string }) 
         <ListingDetailMain listing={listing} />
         <aside>
           <BookingFloatingWidget
-            priceTotal={priceTotal}
+            pricePerNight={listing.pricePerNight ?? priceTotal}
+            fallbackTotalPrice={priceTotal}
             currency={listing.currency}
             rating={listing.rating}
             reviewsCount={listing.reviewsCount ?? 0}
-            checkInDate={null}
-            checkOutDate={null}
-            guestsSummary={`Hasta ${listing.maxGuests} viajeros`}
-            urgencyNotice={`Estancia de ${listing.minNights} a ${listing.maxNights} noches`}
+            maxGuests={listing.maxGuests}
+            minNights={listing.minNights}
+            maxNights={listing.maxNights}
           />
         </aside>
       </div>
