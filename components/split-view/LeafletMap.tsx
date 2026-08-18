@@ -13,9 +13,9 @@ const MADRID_CENTER: [number, number] = [40.4168, -3.7038];
 
 function createPriceIcon(price: number | string) {
   return L.divIcon({
-    html: `<div class="rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-xs font-semibold text-zinc-900 shadow-md">${price} €</div>`,
+    html: `<div class="-translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full border border-zinc-200 bg-white px-3 py-1.5 text-xs font-semibold text-zinc-900 shadow-md">${price} €</div>`,
     className: "",
-    iconSize: [0, 0],
+    iconAnchor: [0, 0],
   });
 }
 
