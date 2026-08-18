@@ -16,7 +16,7 @@ export default function SubheaderStickyNav({
   onReserveClick,
 }: SubheaderStickyNavProps) {
   return (
-    <div className="sticky top-[65px] z-40 flex items-center justify-between border-b border-zinc-200 bg-white px-4 sm:px-8">
+    <div className="sticky top-[65px] z-40 hidden items-center justify-between border-b border-zinc-200 bg-white px-4 sm:flex sm:px-8">
       <StickyNavLinks sections={sections} activeSectionId={activeSectionId} />
       <StickyNavSummary
         listingSummary={listingSummary}

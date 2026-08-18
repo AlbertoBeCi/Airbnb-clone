@@ -1,6 +1,8 @@
 import { Globe } from "lucide-react";
 import Logo from "./Logo";
 import NavTabs from "./NavTabs";
+import CategoryPills from "./CategoryPills";
+import CatalogMobileHeader from "./CatalogMobileHeader";
 import UserActionMenu from "./UserActionMenu";
 import SearchBar from "@/components/search-bar/SearchBar";
 import type { SearchParams, UserSession } from "@/lib/types";
@@ -9,6 +11,7 @@ interface HeaderProps {
   variant: "full" | "compact";
   activeCategoryTab?: string;
   userSession?: UserSession;
+  isCatalog?: boolean;
   onSearchSubmit?: (params: SearchParams) => void;
 }
 
@@ -16,13 +19,20 @@ export default function Header({
   variant,
   activeCategoryTab,
   userSession,
+  isCatalog = false,
   onSearchSubmit,
 }: HeaderProps) {
   const isFull = variant === "full";
+  const hideTopRowOnMobile = !isFull && isCatalog;
 
   return (
     <header className="sticky top-0 z-50 flex flex-col border-b border-zinc-200 bg-white px-4 sm:px-8">
-      <div className="flex items-center justify-between gap-4 py-3">
+      {hideTopRowOnMobile && <CatalogMobileHeader />}
+      <div
+        className={`items-center justify-between gap-4 py-3 ${
+          hideTopRowOnMobile ? "hidden sm:flex" : "flex"
+        }`}
+      >
         <Logo />
         {isFull && <NavTabs activeCategoryTab={activeCategoryTab} />}
         {!isFull && (
@@ -43,9 +53,12 @@ export default function Header({
       </div>
 
       {isFull && (
-        <div className="flex justify-center pb-4">
-          <SearchBar onSearch={onSearchSubmit} />
-        </div>
+        <>
+          <div className="flex justify-center pb-4">
+            <SearchBar onSearch={onSearchSubmit} />
+          </div>
+          <CategoryPills activeCategoryTab={activeCategoryTab} />
+        </>
       )}
     </header>
   );

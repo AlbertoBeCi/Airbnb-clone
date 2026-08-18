@@ -10,7 +10,7 @@ interface ListingCardProps {
   title: string;
   description: string;
   datesAvailable?: string;
-  pricePerNight?: number;
+  originalPrice?: number;
   totalPrice: number | string;
   rating: number;
   reviewsCount?: number;
@@ -25,9 +25,10 @@ export default function ListingCard({
   title,
   description,
   datesAvailable,
-  pricePerNight,
+  originalPrice,
   totalPrice,
   rating,
+  reviewsCount,
   isFavorite,
   onToggleFavorite,
 }: ListingCardProps) {
@@ -44,9 +45,10 @@ export default function ListingCard({
         title={title}
         description={description}
         datesAvailable={datesAvailable}
-        pricePerNight={pricePerNight}
+        originalPrice={originalPrice}
         totalPrice={totalPrice}
         rating={rating}
+        reviewsCount={reviewsCount}
       />
     </Link>
   );

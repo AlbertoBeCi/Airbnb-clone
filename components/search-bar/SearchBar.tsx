@@ -44,16 +44,27 @@ export default function SearchBar({ isCompact = false, onSearch }: SearchBarProp
   }
 
   return (
-    <ExpandedSearchBar
-      destination={destination}
-      checkInDate={checkInDate}
-      checkOutDate={checkOutDate}
-      guests={guests}
-      onDestinationChange={setDestination}
-      onCheckInChange={setCheckInDate}
-      onCheckOutChange={setCheckOutDate}
-      onGuestsChange={setGuests}
-      onSearch={handleSearch}
-    />
+    <>
+      <div className="w-full sm:hidden">
+        <CompactSearchBar
+          destination={destination}
+          onDestinationChange={setDestination}
+          onSearch={handleSearch}
+        />
+      </div>
+      <div className="hidden sm:block">
+        <ExpandedSearchBar
+          destination={destination}
+          checkInDate={checkInDate}
+          checkOutDate={checkOutDate}
+          guests={guests}
+          onDestinationChange={setDestination}
+          onCheckInChange={setCheckInDate}
+          onCheckOutChange={setCheckOutDate}
+          onGuestsChange={setGuests}
+          onSearch={handleSearch}
+        />
+      </div>
+    </>
   );
 }

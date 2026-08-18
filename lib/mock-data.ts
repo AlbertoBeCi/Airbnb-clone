@@ -25,6 +25,7 @@ import {
 } from "lucide-react";
 import type {
   Amenity,
+  CategoryTab,
   FilterOption,
   Host,
   ListingDetail,
@@ -33,10 +34,11 @@ import type {
   Review,
 } from "./types";
 
-export const NAV_TABS = [
-  { id: "stays", label: "Alojamientos" },
-  { id: "experiences", label: "Experiencias" },
-  { id: "services", label: "Servicios" },
+export const NAV_TABS: CategoryTab[] = [
+  { id: "all", label: "Todo", icon: "🌐" },
+  { id: "stays", label: "Alojamientos", icon: "🏠" },
+  { id: "experiences", label: "Experiencias", icon: "🎈" },
+  { id: "services", label: "Servicios", icon: "🛎️" },
 ];
 
 export const FILTER_OPTIONS: FilterOption[] = [
@@ -62,6 +64,7 @@ export const LISTINGS: ListingItem[] = [
     description: "Anfitrión: Marta · 2 camas · Madrid",
     datesAvailable: "12-17 sept",
     pricePerNight: 78,
+    originalPrice: 104,
     totalPrice: 390,
     rating: 4.92,
     reviewsCount: 214,
@@ -76,6 +79,7 @@ export const LISTINGS: ListingItem[] = [
     description: "Anfitrión: Jordi · 3 camas · Barcelona",
     datesAvailable: "1-6 oct",
     pricePerNight: 112,
+    originalPrice: 149,
     totalPrice: 560,
     rating: 4.87,
     reviewsCount: 156,
@@ -103,6 +107,7 @@ export const LISTINGS: ListingItem[] = [
     description: "Sevilla · Habitación doble",
     datesAvailable: "5-9 oct",
     pricePerNight: 95,
+    originalPrice: 119,
     totalPrice: 380,
     rating: 4.8,
     reviewsCount: 302,

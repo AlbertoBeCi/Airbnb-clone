@@ -11,6 +11,7 @@ export default function HeaderContainer() {
   return (
     <Header
       variant={isFull ? "full" : "compact"}
+      isCatalog={pathname === "/search"}
       onSearchSubmit={() => router.push("/search")}
     />
   );

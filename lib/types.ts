@@ -33,11 +33,18 @@ export interface ListingItem {
   description: string;
   datesAvailable?: string;
   pricePerNight?: number;
+  originalPrice?: number;
   totalPrice: number | string;
   rating: number;
   reviewsCount?: number;
   lat: number;
   lng: number;
+}
+
+export interface CategoryTab {
+  id: string;
+  label: string;
+  icon: string;
 }
 
 export interface Amenity {

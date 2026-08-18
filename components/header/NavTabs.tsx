@@ -5,12 +5,14 @@ interface NavTabsProps {
 }
 
 export default function NavTabs({ activeCategoryTab = "stays" }: NavTabsProps) {
+  const desktopTabs = NAV_TABS.filter((tab) => tab.id !== "all");
+
   return (
     <nav
       aria-label="Tipos de experiencia"
       className="hidden items-center gap-6 md:flex"
     >
-      {NAV_TABS.map((tab) => {
+      {desktopTabs.map((tab) => {
         const isActive = tab.id === activeCategoryTab;
         return (
           <button
